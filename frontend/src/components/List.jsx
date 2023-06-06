@@ -1,8 +1,16 @@
-
+import { useEffect, useState } from "react";
 import data from "../data.js";
 import { Link } from "react-router-dom";
+import {getPosts} from '../service'
+
+
+
 function List() {
-    console.log(data)
+    const [posts, setPosts] = useState([])
+  useEffect(()=>{
+    getPosts().then(setPosts)
+  },[])
+
   return (
      <div>
       {data.map(item => {

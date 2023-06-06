@@ -2,8 +2,9 @@ import axios from "axios"
 
 export function getPosts(){
         new Promise(resolve => {
-          axios.get('https://localhost:4000/')
-          .then(console.log)
+          axios.get('http://localhost:4000')
+          .then(res=> res.status === 200 && res.data)
+          .then(resolve)
           .catch(console.error)
         })
   }
