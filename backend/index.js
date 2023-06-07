@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import { Db, MongoClient, ServerApiVersion } from 'mongodb'
 import doten from "dotenv"
 import cors from "cors"
@@ -11,8 +11,6 @@ app.use(cors())
 doten.config()
 
 const uri = process.env.STRING_URI
-
-
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {

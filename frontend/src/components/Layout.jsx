@@ -1,13 +1,21 @@
-import { useState, useRef } from "react";
-import { Suspense } from "react";
+import { useState, useRef , useEffect} from "react";
+import { useAppContext } from "../context/index";
 
 function Layout({ children }) {
+
+  const {addPosts} = useAppContext()
+
+
   const inputRef = useRef();
   const textRef = useRef();
   const [isCollapse, setCollapse] = useState(false);
   const toggleVisibility = () => setCollapse(!isCollapse);
   const handleOnChange = (e) => console.log(e.target.value);
   const handleOnSubmit = (e) => e.preventDefault();
+
+useEffect(()=>{
+    addPosts({title: "demon slayer", container:"kimestsu no yaiba"})
+},[])
 
   return (
     <>
