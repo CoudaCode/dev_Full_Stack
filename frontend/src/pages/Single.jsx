@@ -14,6 +14,6 @@ function Single() {
         <h3>{post?.Content}</h3>
     </>
   ) 
-}  
+}
 
 export default Single

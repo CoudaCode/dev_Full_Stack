@@ -3,12 +3,10 @@ import data from "../data.js";
 import { Link } from "react-router-dom";
 import {getPosts} from '../service'
 
-
-
 function List() {
     const [posts, setPosts] = useState([])
   useEffect(()=>{
-    getPosts().then(setPosts)
+    getPosts().className
   },[])
 
   return (
