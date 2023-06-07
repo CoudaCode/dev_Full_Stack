@@ -1,23 +1,11 @@
-
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function run() {
-    await client.connect();
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-}
-
-run().then().catch(console.dir);
 module.exports = {
       insertPost(req, res){
           client(function(db){
-            db.collection("posts").insertOne({
-                  
-          })    
+            db.collection(COLLECTION).insertOne(req.body)
+            .then(()=> db.collection(COLLECTION).find().toArray())
+            .then(records=> res.status(200).send(records))
+            .catch(()=>{
+                  res.status(200).send(`Error fetching document ${COLLECTION}`)
+            })
       })
 }}

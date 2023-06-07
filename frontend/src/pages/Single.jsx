@@ -17,7 +17,7 @@ function Single() {
     <>
       <Link to="/">Retour</Link>
         <h3>{post?.title}</h3>
-        <h3>{post?.Content}</h3>
+        <h3>{post?.container}</h3>
     </>
   ) 
 }

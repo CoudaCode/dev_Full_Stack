@@ -4,7 +4,6 @@ import doten from "dotenv"
 import cors from "cors"
 const app = express();
 
-
 app.use(cors())
 
 // SI le ficher .env est a la racine
@@ -36,12 +35,11 @@ app.get('/', async (req, res)=>{
 
 // La methodes Post
 app.post('/insert', async (req, res)=>{
-  const datas = await client.db("blog").collection('post').insertOne({_id: "new person",
-  title: "couda",
-  container: "ezgzrtgzrgtzrgezr"})
+  const datas = await client.db("blog").collection('post').insertOne(req.body)
   console.log("data" , datas)
   res.status(200).send(datas)
 })
+
 
 
 app.listen(4000, ()=>{
