@@ -14,5 +14,10 @@ async function run() {
 
 run().then().catch(console.dir);
 module.exports = {
-    insert
-}
+      insertPost(req, res){
+          client(function(db){
+            db.collection("posts").insertOne({
+                  
+          })    
+      })
+}}
