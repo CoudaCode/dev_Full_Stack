@@ -1,11 +1,11 @@
-import {getPosts, insertPost} from './controllers' 
+import db from './controllers.js' 
 import express  from 'express'
  const router = express.Router()
 
 
  
- router.get('/', getPosts)
- router.post('/insert', insertPost)
+ router.get('/', db.getPosts)
+ router.post('/insert', db.insertPost)
 
 
  
