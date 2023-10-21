@@ -1,25 +1,24 @@
-
-import blog from "./models.js";
+import Blog from "./models.js";
 class db {
   static async insertPost(req, res) {
     try {
-      const newPost = await blog.create(req.body);
+      const { title, body } = req.body;
+     
+      const newPost = await Blog.create(req.body);
 
-      console.log(newPost);
       res.status(200).json(newPost);
-    } catch (error) {
-      console.log(message.error);
-      res.status(500).json({ message: "Error inserting post" });
+    } catch (e) {
+      console.log(e.message);
+      res.status(500).json({ message: e.message });
     }
   }
   static async getPosts(req, res) {
     try {
-      const post = await blog.find({});
-      console.log(post);
+      const post = await Blog.find({});
       res.status(200).json(post);
-    } catch (error) {
-      console.log(message.error);
-      res.status(500).json({ message: "Error getting post" });
+    } catch (e) {
+      console.log(e.message);
+      res.status(500).json({ message: e.message });
     }
   }
 }
